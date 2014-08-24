@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Main" tilewidth="32" tileheight="32">
+  <image source="../graphics/tileset.png" width="32" height="32"/>
+ </tileset>
+ <layer name="Main" width="30" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1DEOACAIBDD4/6fd3Rw8TCzJrVQIsauqh5IuLpfL5XK5XC6Xy+VyuVwul8vlcrlcLpfL5XK5XC6Xm3c7lHRx/3RT95ye+7U9c++46Xucnpd73uPlf2p/KzfjTmQBuHMBUA==
+  </data>
+ </layer>
+ <objectgroup name="Collision" width="30" height="100">
+  <object x="0" y="0" width="32" height="3200"/>
+  <object x="32" y="3168" width="896" height="64"/>
+  <object x="960" y="3200" width="32" height="32"/>
+  <object x="928" y="0" width="32" height="3200"/>
+  <object x="32" y="0" width="896" height="32"/>
+  <object x="512" y="3008" width="416" height="32"/>
+  <object x="32" y="2880" width="512" height="32"/>
+  <object x="160" y="2688" width="768" height="32"/>
+  <object x="32" y="2720" width="64" height="32"/>
+  <object x="160" y="2496" width="768" height="32"/>
+ </objectgroup>
+ <objectgroup name="Objects" width="30" height="100">
+  <object name="player" type="player" x="64" y="3136" width="32" height="32"/>
+  <object name="guard" type="guard" x="32" y="2848" width="32" height="32"/>
+  <object name="laser right" type="laser" x="32" y="2560" width="896" height="32"/>
+  <object name="guard" type="guard" x="896" y="2656" width="32" height="32"/>
+  <object name="guard" type="guard" x="192" y="2464" width="32" height="32"/>
+  <object name="guard" type="guard" x="896" y="2464" width="32" height="32"/>
+ </objectgroup>
+</map>
