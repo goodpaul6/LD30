@@ -5,7 +5,7 @@
  </tileset>
  <layer name="Main" width="30" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1DEOACAIBDD4/6fd3Rw8TCzJrVQIsauqh5IuLpfL5XK5XC6Xy+VyuVwul8vlcrlcLpfL5XK5XC6Xm3c7lHRx/3RT95ye+7U9c++46Xucnpd73uPlf2p/KzfjTmQBuHMBUA==
+   eJzt1FEKgCAQBFC9/6X7D6TCnJV6A/tZz8al3lrrRZMOl8vlcrlcLpfL5XK5XC6Xy+VyuVwul8vlcvPuinP93e2DWe2mMuOOurnT1cyzM/lyz8ker8Ktdd/YGXv1P3fX+03tc1Xf6XCzbnofq7+X+/wdO/+nzmflZtyKOQAAaAF8
   </data>
  </layer>
  <objectgroup name="Collision" width="30" height="100">
@@ -19,6 +19,12 @@
   <object x="160" y="2688" width="768" height="32"/>
   <object x="32" y="2720" width="64" height="32"/>
   <object x="160" y="2496" width="768" height="32"/>
+  <object x="864" y="2624" width="64" height="32"/>
+  <object x="32" y="2272" width="256" height="32"/>
+  <object x="448" y="2336" width="480" height="32"/>
+  <object x="96" y="2176" width="192" height="32"/>
+  <object x="256" y="2080" width="32" height="96"/>
+  <object x="448" y="2240" width="320" height="32"/>
  </objectgroup>
  <objectgroup name="Objects" width="30" height="100">
   <object name="player" type="player" x="64" y="3136" width="32" height="32"/>
@@ -27,5 +33,9 @@
   <object name="guard" type="guard" x="896" y="2656" width="32" height="32"/>
   <object name="guard" type="guard" x="192" y="2464" width="32" height="32"/>
   <object name="guard" type="guard" x="896" y="2464" width="32" height="32"/>
+  <object name="key" type="key" x="864" y="2592" width="32" height="32"/>
+  <object name="door" type="door" x="448" y="2272" width="32" height="64"/>
+  <object name="guard" type="guard" x="896" y="2304" width="32" height="32"/>
+  <object name="laser right" type="laser" x="32" y="2240" width="256" height="32"/>
  </objectgroup>
 </map>

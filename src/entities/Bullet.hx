@@ -10,6 +10,8 @@ import com.haxepunk.masks.Circle;
  */
 class Bullet extends Entity
 {
+	private static var _img : Image = Image.createCircle(_radius, 0x888888);
+	
 	private static inline var _radius = 5;
 	private static inline var _velX = 600;
 	
@@ -18,7 +20,7 @@ class Bullet extends Entity
 	public function new(x : Float, y : Float, dir : Int) 
 	{
 		var img : Image;
-		super(x, y, img = Image.createCircle(_radius, 0x888888));
+		super(x, y, img = _img);
 		img.centerOrigin();
 		_dir = dir;
 		mask = new Circle(_radius);

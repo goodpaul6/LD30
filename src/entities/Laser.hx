@@ -12,7 +12,7 @@ import com.haxepunk.HXP;
 class Laser extends Entity
 {
 	private static inline var _activeTime = 3;
-	private static inline var _shootCooldown = 0.05;
+	private static inline var _shootCooldown = 0.08;
 	
 	private var _length : Int;
 	

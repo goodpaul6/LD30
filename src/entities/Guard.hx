@@ -15,6 +15,7 @@ class Guard extends Entity
 	private static inline var _accelY = 30;
 	private static inline var _seenVelX = 250;
 	private static inline var _viewLength = 150;
+	private static inline var _shotCooldown = 0.5;
 	
 	private var _seenPlayer : Bool;
 	private var _dir : Int;
@@ -28,6 +29,8 @@ class Guard extends Entity
 	private var _viewImage : Image;
 	
 	private var _exclaim : Entity;
+	
+	private var _shootTimer : Float;
 	
 	public function new(x : Float, y : Float, dir : Int) 
 	{
@@ -44,6 +47,8 @@ class Guard extends Entity
 		setHitbox(16, 32, -8);
 	
 		_exclaim = null;
+		
+		_shootTimer = 0;
 		
 		type = "guard";
 	}
@@ -77,6 +82,14 @@ class Guard extends Entity
 				_exclaim = scene.addGraphic(img = new Image("graphics/guard_seen.png"));
 				img.centerOrigin();
 			}
+			
+			if(_shootTimer <= 0)
+			{	
+				scene.add(new Bullet(centerX + _dir * (_anim.width / 2), centerY, _dir));
+				_shootTimer = _shotCooldown;
+			}
+			else
+				_shootTimer -= HXP.elapsed;
 		}
 		else
 		{
@@ -121,7 +134,7 @@ class Guard extends Entity
 		else
 			_grounded = false;
 		
-		moveBy(_dir * (_seenPlayer ? _seenVelX : _velX) * HXP.elapsed, _velY, ["wall", "player"]);
+		moveBy(_dir * (_seenPlayer ? _seenVelX : _velX) * HXP.elapsed, _velY, ["wall", "player", "door"]);
 	}
 	
 	public override function moveCollideX(e : Entity) : Bool

@@ -72,17 +72,7 @@ class Player extends Entity
 		_grounded = false;
 	}
 	
-	public function takeKey() : Bool
-	{
-		if (_hasKey)
-		{
-			_hasKey = false;
-			return true;
-		}
-		return false;
-	}
-	
-	public function giveKeyIfNone() : Bool
+	private function giveKeyIfNone() : Bool
 	{
 		if (_clone)
 			return false;
@@ -128,7 +118,7 @@ class Player extends Entity
 		}
 		
 		if (_canClone && Input.pressed(Key.I))
-			scene.add(new Player(x - 16, y, true));
+			scene.add(new Player(x - 18, y, true));
 			
 		if (!_clone)
 		{
@@ -188,13 +178,33 @@ class Player extends Entity
 				
 			_velY += _accelY * HXP.elapsed;
 		}
-		moveBy(_velX, _velY, ["wall", "player", "guard", "laser", "key"]);
+		moveBy(_velX, _velY, ["wall", "player", "guard", "laser", "key", "door", "box"]);
 	}
 	
 	public override function moveCollideX(e : Entity) : Bool
 	{
-		if (_clone && e.type == "key")
-			e.moveBy(_velX, 0, ["wall", "player", "guard", "laser"]);
+		if (e.type == "key")
+		{
+			if (giveKeyIfNone())
+			{
+				scene.remove(e);
+				return false;
+			}
+			else
+				e.moveBy(_velX, 0, ["wall", "player", "guard", "laser", "door", "box"]);
+		}
+		if (e.type == "door")
+		{
+			if (_hasKey)
+			{
+				_hasKey = false;
+				scene.remove(e);
+				return false;
+			}
+		}
+		if (e.type == "box")
+			e.moveBy(_velX, 0, ["wall", "player", "guard", "laser", "door"]);
+		
 		return true;
 	}
 	
@@ -203,6 +213,14 @@ class Player extends Entity
 		_velY = 0;
 		if (Math.abs(e.top - bottom) < 5)
 			_grounded = true;
+		if (e.type == "key")
+		{
+			if (giveKeyIfNone())
+			{
+				scene.remove(e);
+				return false;
+			}
+		}
 		return true;
 	}
 }

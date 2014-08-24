@@ -1,28 +1,24 @@
 package entities;
 import com.haxepunk.Entity;
 import com.haxepunk.graphics.Image;
-import com.haxepunk.HXP;
 
 /**
  * ...
  * @author Epitome Games
  */
-class Key extends Entity
+class Box extends Entity
 {	
-	private static inline var _accelY = 30;
+	private static var _img : Image = new Image("graphics/box.png");
 	
-	private var _grounded : Bool;
 	private var _velY : Float;
 	
 	public function new(x : Float, y : Float) 
 	{
-		super(x, y, new Image("graphics/key.png"));
-		setHitbox(20, 10);
+		super(x, y, _img);
+		setHitboxTo(_img);
 		_velY = 0;
-		_grounded = false;
-		type = "key";
-	}	
-	
+		type = "box";
+	}
 	
 	public override function update() 
 	{
