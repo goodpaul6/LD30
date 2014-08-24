@@ -2,6 +2,7 @@ import com.haxepunk.Scene;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.tmx.TmxMap;
 import entities.Guard;
+import entities.Key;
 import entities.Laser;
 import entities.Player;
 import entities.Wall;
@@ -70,6 +71,8 @@ class MainScene extends Scene
 				add(new Laser(object.x, object.y, 1, object.width));
 			if (object.name == "laser left")
 				add(new Laser(object.x + object.width, object.y, -1, object.width));
+			if (object.name == "key")
+				add(new Key(object.x, object.y));
 		}
 		
 		for (collider in map.getObjectGroup("Collision").objects)

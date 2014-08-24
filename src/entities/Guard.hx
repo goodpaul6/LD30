@@ -12,7 +12,7 @@ import com.haxepunk.HXP;
 class Guard extends Entity
 {	
 	private static inline var _velX = 100;
-	private static inline var _accelY = 50;
+	private static inline var _accelY = 30;
 	private static inline var _seenVelX = 250;
 	private static inline var _viewLength = 150;
 	

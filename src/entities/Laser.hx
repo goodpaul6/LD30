@@ -2,6 +2,7 @@ package entities;
 import com.haxepunk.Entity;
 import com.haxepunk.graphics.Graphiclist;
 import com.haxepunk.graphics.Image;
+import com.haxepunk.graphics.Text;
 import com.haxepunk.HXP;
 
 /**
@@ -24,6 +25,11 @@ class Laser extends Entity
 	private var _shootTimer : Float;
 	private var _laserImg : Image;
 	
+	private var _disableDurEntity : Entity;
+	private var _disableDurText : Text;
+	
+	private var _disabled : Bool;
+	
 	public function new(x : Float, y : Float, dir : Int, length : Int) 
 	{
 		var body : Image;
@@ -41,7 +47,25 @@ class Laser extends Entity
 		_active = true;
 		_timer = _activeTime;
 		_shootTimer = 0;
+		_disableDurText = null;
+		_disableDurEntity = null;
 		type = "laser";
+	}
+	
+	public function disableForDuration(dur : Float)
+	{
+		if (!_disabled)
+		{
+			_active = false;
+			_timer = dur;
+		
+			_disableDurEntity = scene.addGraphic(_disableDurText = new Text(Std.string(Math.floor(dur))));
+			_disableDurText.centerOrigin();
+			_disableDurText.x = (_dir == 1 ? x + width + 10 : x - width - 10);
+			_disableDurText.y = y;
+			_disableDurText.color = 0xFF0000;
+			_disabled = true;
+		}
 	}
 	
 	public override function update()
@@ -50,12 +74,23 @@ class Laser extends Entity
 		
 		if (!_seenPlayer)
 		{
+			if (_disableDurEntity != null)
+				_disableDurText.text = Std.string(Math.floor(_timer));
+			
 			if (_timer >= 0)
 				_timer -= HXP.elapsed;
 			else
 			{
 				_timer = _activeTime;
 				_active = !_active;
+				
+				if (_disableDurEntity != null)
+				{
+					scene.remove(_disableDurEntity);
+					_disableDurEntity = null;
+					_disableDurText = null;
+					_disabled = false;
+				}
 			}
 			
 			if (!_active)

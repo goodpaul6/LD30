@@ -23,7 +23,7 @@
  <objectgroup name="Objects" width="30" height="100">
   <object name="player" type="player" x="64" y="3136" width="32" height="32"/>
   <object name="guard" type="guard" x="32" y="2848" width="32" height="32"/>
-  <object name="laser right" type="laser" x="32" y="2592" width="896" height="32"/>
+  <object name="laser right" type="laser" x="32" y="2560" width="896" height="32"/>
   <object name="guard" type="guard" x="896" y="2656" width="32" height="32"/>
   <object name="guard" type="guard" x="192" y="2464" width="32" height="32"/>
   <object name="guard" type="guard" x="896" y="2464" width="32" height="32"/>

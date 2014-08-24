@@ -33,6 +33,8 @@ class Player extends Entity
 	
 	private var _canClone : Bool;
 	
+	private var _hasKey : Bool;
+	
 	public function new(x : Float, y : Float, clone : Bool = false) 
 	{
 		super(x, y, (clone ? new Graphiclist([_anim = new Spritemap("graphics/player_sheet.png", 32, 32), _cloneTimeLeftText = new Text("15")]) : 
@@ -65,7 +67,30 @@ class Player extends Entity
 		type = "player";
 		name = clone ? "clone" : "normal";
 		
+		_hasKey = false;
+		
 		_grounded = false;
+	}
+	
+	public function takeKey() : Bool
+	{
+		if (_hasKey)
+		{
+			_hasKey = false;
+			return true;
+		}
+		return false;
+	}
+	
+	public function giveKeyIfNone() : Bool
+	{
+		if (_clone)
+			return false;
+		
+		if (_hasKey)
+			return false;
+		_hasKey = true;
+		return true;
 	}
 	
 	public override function update()
@@ -135,11 +160,19 @@ class Player extends Entity
 		
 		_velX *= 0.7;
 			
-		if (collideTypes(["wall", "player", "guard", "laser"], x, y + 5) != null)
+		var collE : Entity = collideTypes(["wall", "player", "guard", "laser"], x, y + 5);
+		if (collE != null)
+		{
+			if (collE.type == "laser")
+			{
+				if (Input.pressed((_clone ? Key.DOWN : Key.S)))
+					cast(collE, Laser).disableForDuration(11);
+			}
 			_grounded = true;
+		}
 		else
 			_grounded = false;
-	
+		
 		if (_grounded && Input.pressed(_clone ? Key.UP : Key.W))
 		{	
 			_velY -= _jumpImpulse;
@@ -155,11 +188,13 @@ class Player extends Entity
 				
 			_velY += _accelY * HXP.elapsed;
 		}
-		moveBy(_velX, _velY, ["wall", "player", "guard", "laser"]);
+		moveBy(_velX, _velY, ["wall", "player", "guard", "laser", "key"]);
 	}
 	
 	public override function moveCollideX(e : Entity) : Bool
 	{
+		if (_clone && e.type == "key")
+			e.moveBy(_velX, 0, ["wall", "player", "guard", "laser"]);
 		return true;
 	}
 	

@@ -74,8 +74,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("graphics/guard_seen.png", AssetType.IMAGE);
 		className.set ("graphics/guard_sheet.png", __ASSET__graphics_guard_sheet_png);
 		type.set ("graphics/guard_sheet.png", AssetType.IMAGE);
-		className.set ("graphics/key.png", __ASSET__graphics_key_png);
-		type.set ("graphics/key.png", AssetType.IMAGE);
 		className.set ("graphics/laser.png", __ASSET__graphics_laser_png);
 		type.set ("graphics/laser.png", AssetType.IMAGE);
 		className.set ("graphics/laser_line.png", __ASSET__graphics_laser_line_png);
@@ -135,9 +133,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "graphics/guard_sheet.png";
-		path.set (id, id);
-		type.set (id, AssetType.IMAGE);
-		id = "graphics/key.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "graphics/laser.png";
@@ -210,9 +205,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("graphics/guard_sheet.png", __ASSET__graphics_guard_sheet_png);
 		type.set ("graphics/guard_sheet.png", AssetType.IMAGE);
-		
-		className.set ("graphics/key.png", __ASSET__graphics_key_png);
-		type.set ("graphics/key.png", AssetType.IMAGE);
 		
 		className.set ("graphics/laser.png", __ASSET__graphics_laser_png);
 		type.set ("graphics/laser.png", AssetType.IMAGE);
@@ -860,19 +852,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep class __ASSET__graphics_debug_console_step_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_debug_console_visible_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_preloader_haxepunk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__font_04b_03___ttf extends openfl.text.Font { }
+@:keep class __ASSET__font_04b_03___ttf extends null { }
 @:keep class __ASSET__font_04b_03___ttf_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_guard_line_of_sight_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_guard_seen_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_guard_sheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__graphics_key_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_laser_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_laser_line_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_player_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_player_sheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__graphics_tileset_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__font_5 extends openfl.text.Font { }
-@:keep class __ASSET__maps_prison_tmx extends openfl.utils.ByteArray { }
+@:keep class __ASSET__font_5 extends null { }
+@:keep class __ASSET__maps_prison_tmx extends null { }
 
 
 #elseif html5
@@ -887,7 +878,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep class __ASSET__font_04b_03___ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "font/04B_03__.ttf"; } #end }
-
 
 
 
@@ -918,7 +908,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:bitmap("assets/graphics/guard_line_of_sight.png") class __ASSET__graphics_guard_line_of_sight_png extends flash.display.BitmapData {}
 @:bitmap("assets/graphics/guard_seen.png") class __ASSET__graphics_guard_seen_png extends flash.display.BitmapData {}
 @:bitmap("assets/graphics/guard_sheet.png") class __ASSET__graphics_guard_sheet_png extends flash.display.BitmapData {}
-@:bitmap("assets/graphics/key.png") class __ASSET__graphics_key_png extends flash.display.BitmapData {}
 @:bitmap("assets/graphics/laser.png") class __ASSET__graphics_laser_png extends flash.display.BitmapData {}
 @:bitmap("assets/graphics/laser_line.png") class __ASSET__graphics_laser_line_png extends flash.display.BitmapData {}
 @:bitmap("assets/graphics/player.png") class __ASSET__graphics_player_png extends flash.display.BitmapData {}
